@@ -1,0 +1,27 @@
+<div class="container">
+  <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+      <h2>Please login using your nickname</h2>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nickname</mat-label>
+        <input matInput placeholder="Enter your nickname" formControlName="nickname"
+                [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!loginForm.get('nickname').valid && loginForm.get('nickname').touched">Please enter your nickname</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+          <button type="submit" [disabled]="!loginForm.valid" mat-fab color="primary"><mat-icon>login</mat-icon></button>
+      </div>
+  </form>
+ <!-- <div>
+    <button type="button" (click)="GoogleAuth()"  value="google">
+        <span> <img width="65px" style="margin-bottom:3px; 
+                                        margin-right:5px;
+                                        position: relative;
+                                        left: 50%;
+                                        margin: auto;
+                                        padding-top: 16px;
+                                        transform: translate(-50%, 0);" 
+                    alt="Google login" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" /></span>
+    </button>-->
+</div>
